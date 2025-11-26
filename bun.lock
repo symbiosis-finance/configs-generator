@@ -6,7 +6,7 @@
       "dependencies": {
         "@typechain/ethers-v5": "^11.1.2",
         "ethers": "^5.7.2",
-        "symbiosis-js-sdk": "3.5.62",
+        "symbiosis-js-sdk": "3.6.27",
         "tronweb": "^5.3.0",
       },
       "devDependencies": {
@@ -24,11 +24,11 @@
 
     "@chainflip/bitcoin": ["@chainflip/bitcoin@1.2.7", "", { "dependencies": { "@chainflip/utils": "0.8.18", "bignumber.js": "^9.3.1", "bitcoinjs-lib": "7.0.0-rc.0", "scale-ts": "^1.6.1", "zod": "^3.25.75" } }, "sha512-De/3Oe53xCvolYsYydK+/wQ1qorPsvbsRX7idA4m86sHQTxlZ4hP5LU7lb3xhOyqrl94LMd56iCRLgoFlzmsCA=="],
 
-    "@chainflip/rpc": ["@chainflip/rpc@1.11.6", "", { "dependencies": { "@chainflip/utils": "0.11.0", "zod": "^3.25.75" } }, "sha512-aj3tdGnxjeAFvt9sm7hzGqGhof1sG8e01nr4NPRY7mawKe6zaWPHliq1oqK5+8BObynTeHKC7cy5OT0nqdolPw=="],
+    "@chainflip/rpc": ["@chainflip/rpc@1.11.15", "", { "dependencies": { "@chainflip/utils": "0.11.0", "zod": "^3.25.75" } }, "sha512-wYna0WV3PTzGVH2wgA5gvdxB0aGd1uorY0Pd1OX9POGWF7TCk/LkhI5Zu8F+ci1Pf9w0odESj+pTw1of1CM2Dg=="],
 
     "@chainflip/scale": ["@chainflip/scale@1.11.0", "", { "dependencies": { "@chainflip/utils": "^0.8.22", "scale-ts": "^1.6.1" } }, "sha512-gLs2pARutz6JJSKth92TYQEHVWvwpavWNUARB9626t+QxlparHyL10t9XibD2X1sr+GLXWKj2q5qXOSGU8CICA=="],
 
-    "@chainflip/sdk": ["@chainflip/sdk@1.11.1", "", { "dependencies": { "@chainflip/bitcoin": "^1.2.7", "@chainflip/rpc": "~1.11.0", "@chainflip/solana": "^2.2.0", "@chainflip/utils": "^0.11.1", "@ts-rest/core": "^3.52.1", "axios": "^1.10.0", "bignumber.js": "^9.3.0", "ethers": "^6.14.4", "zod": "^3.25.76" } }, "sha512-aSMZe1sjaKRRshb++0OWlegPoc2/82Vi0jbNL2gf3A7f8Oxy7MM8Zn6BmSDFtQPJyWNEvt9EkVf7zXCepPSuBg=="],
+    "@chainflip/sdk": ["@chainflip/sdk@1.11.2", "", { "dependencies": { "@chainflip/bitcoin": "^1.2.7", "@chainflip/rpc": "~1.11.7", "@chainflip/solana": "^2.2.0", "@chainflip/utils": "^0.11.1", "@ts-rest/core": "^3.52.1", "axios": "^1.10.0", "bignumber.js": "^9.3.0", "ethers": "^6.14.4", "zod": "^3.25.76" } }, "sha512-fwIkpra67wwFd+4wV6P7i6wX04JE+vzqzXOK3rpc6OwF4zYDexrknGjxb0vnmp/5IPpUQa/cOWnRa9GJ07BhXg=="],
 
     "@chainflip/solana": ["@chainflip/solana@2.2.0", "", { "dependencies": { "@chainflip/scale": "^1.11.0", "@chainflip/utils": "^0.8.22", "@coral-xyz/anchor": "^0.31.1", "@solana/web3.js": "^1.98.4", "bn.js": "^5.2.2", "scale-ts": "^1.6.1", "zod": "^3.25.75" } }, "sha512-MQhH0b9hwO6miw2pAatDUzJJdaOhLMSiZSzbmUHJWqwvazg2X2YUUK3e4+RGKSBL8bBCFiC+FyXBSAvYztd1YQ=="],
 
@@ -780,7 +780,7 @@
 
     "supports-color": ["supports-color@7.2.0", "", { "dependencies": { "has-flag": "^4.0.0" } }, "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw=="],
 
-    "symbiosis-js-sdk": ["symbiosis-js-sdk@3.5.62", "", { "dependencies": { "@bitcoinerlab/secp256k1": "^1.1.1", "@chainflip/sdk": "^1.10.0", "@dedust/sdk": "^0.8.7", "@orbs-network/ton-access": "^2.3.3", "@raydium-io/raydium-sdk-v2": "0.1.106-alpha", "@solana/addresses": "^2.0.0", "@solana/spl-token": "^0.4.0", "@solana/web3.js": "^1.98.0", "@ston-fi/api": "0.23.0", "@ston-fi/sdk": "^2.4.0", "@ton/core": "^0.59.0", "@ton/crypto": "3.3.0", "@ton/ton": "~15.1.0", "@uniswap/sdk-core": "3.1.0", "@uniswap/v3-sdk": "3.9.0", "big.js": "^5.2.2", "bignumber.js": "^9.0.1", "bitcoin-address-validation": "^2.2.3", "bitcoinjs-lib": "^6.1.5", "decimal.js-light": "^2.5.0", "ethers": "^5.2.0", "isomorphic-unfetch": "^3.1.0", "jsbi": "^3.1.1", "lodash.flatmap": "^4.5.0", "pino": "^8.0.0", "pino-pretty": "^8.0.0", "tiny-invariant": "^1.1.0", "tiny-warning": "^1.0.3", "toformat": "^2.0.0", "tronweb": "^5.3.0" } }, "sha512-8z++LO8jg2OtUKLQXsWs4fEzFZkLBblDAVjRYuMUEi9wd1hsJjN1wG35pIadqNWhJcBy0hFMx0/aXK0TVTSFXg=="],
+    "symbiosis-js-sdk": ["symbiosis-js-sdk@3.6.27", "", { "dependencies": { "@bitcoinerlab/secp256k1": "^1.1.1", "@chainflip/sdk": "^1.11.2", "@dedust/sdk": "^0.8.7", "@orbs-network/ton-access": "^2.3.3", "@raydium-io/raydium-sdk-v2": "0.1.106-alpha", "@solana/addresses": "^2.0.0", "@solana/spl-token": "^0.4.0", "@solana/web3.js": "^1.98.0", "@ston-fi/api": "0.23.0", "@ston-fi/sdk": "^2.4.0", "@ton/core": "^0.59.0", "@ton/crypto": "3.3.0", "@ton/ton": "~15.1.0", "@uniswap/sdk-core": "3.1.0", "@uniswap/v3-sdk": "3.9.0", "big.js": "^5.2.2", "bignumber.js": "^9.0.1", "bitcoin-address-validation": "^2.2.3", "bitcoinjs-lib": "^6.1.5", "decimal.js-light": "^2.5.0", "ethers": "^5.2.0", "isomorphic-unfetch": "^3.1.0", "jsbi": "^3.1.1", "lodash.flatmap": "^4.5.0", "pino": "^8.0.0", "pino-pretty": "^8.0.0", "tiny-invariant": "^1.1.0", "tiny-warning": "^1.0.3", "toformat": "^2.0.0", "tronweb": "^5.3.0" } }, "sha512-nuo3K5GXSgelhexA4l6DfUIARed2JuQ5NxvwpuwiMd1gP5OHkV3FA9Wz96H8SzkARziyaIvqKRQiMnNYi6TXkA=="],
 
     "symbol.inspect": ["symbol.inspect@1.0.1", "", {}, "sha512-YQSL4duoHmLhsTD1Pw8RW6TZ5MaTX5rXJnqacJottr2P2LZBF/Yvrc3ku4NUpMOm8aM0KOCqM+UAkMA5HWQCzQ=="],
 
