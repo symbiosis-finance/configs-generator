@@ -18,7 +18,15 @@ async function main() {
 
   const erc20Interface = Erc20__factory.createInterface();
 
-  const tokens = symbiosis.tokens().filter((token) => token.chainId === chainId);
+  const tokens = symbiosis.tokens()
+    .filter((token) => token.chainId === chainId)
+    .reduce((acc, item) => {
+      if (acc.find((t) => t.equals(item))) {
+        return acc;
+      }
+      acc.push(item);
+      return acc
+    }, [] as Token[])
 
   const calls = tokens.map((token) => {
     return {
