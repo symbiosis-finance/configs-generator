@@ -6,6 +6,7 @@
     "defillama-bridges-server": "bun run src/defillama-bridges-server.ts",
     "dune": "bun run src/dune.js",
     "fees": "bun run src/fees.ts",
+    "fees-check": "bun run src/fees-check.ts",
     "postinstall": "typechain --target ethers-v5 './abi/*.json'"
   },
   "dependencies": {
