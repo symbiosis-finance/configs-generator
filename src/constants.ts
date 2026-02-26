@@ -54,4 +54,7 @@ export const CHAINS_DEFILLAMA = {
   [ChainId.KATANA_MAINNET]: 'katana',
   [ChainId.APECHAIN_MAINNET]: 'apechain',
   [ChainId.PLASMA_MAINNET]: 'plasma',
+  [ChainId.MONAD_MAINNET]: 'monad',
+  [ChainId.CITREA_MAINNET]: 'citrea',
+  [ChainId.QUAI_MAINNET]: 'quai',
 };
