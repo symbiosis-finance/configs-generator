@@ -2,7 +2,7 @@ import { ChainId } from 'symbiosis-js-sdk';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
-export const CHAINS_DEFILLAMA = {
+export const CHAINS_DEFILLAMA: Partial<Record<ChainId, string>> = {
   [ChainId.ETH_MAINNET]: 'ethereum',
   [ChainId.BSC_MAINNET]: 'bsc',
   [ChainId.AVAX_MAINNET]: 'avax',
@@ -57,4 +57,5 @@ export const CHAINS_DEFILLAMA = {
   [ChainId.MONAD_MAINNET]: 'monad',
   [ChainId.CITREA_MAINNET]: 'citrea',
   [ChainId.QUAI_MAINNET]: 'quai',
+  [ChainId.TEMPO_MAINNET]: 'tempo',
 };

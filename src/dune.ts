@@ -1,4 +1,11 @@
-import { ChainId, getChainById, isBtcChainId, isSolanaChainId, isTonChainId, Symbiosis } from 'symbiosis-js-sdk';
+import {
+  ChainId,
+  getChainById,
+  isBtcChainId,
+  isSolanaChainId,
+  isTonChainId,
+  Symbiosis,
+} from 'symbiosis-js-sdk';
 import fs from 'fs';
 import { utils } from 'ethers';
 
@@ -31,28 +38,30 @@ export const CHAINS_DUNE = {
   [ChainId.HYPERLIQUID_MAINNET]: 'hyperevm',
   [ChainId.KATANA_MAINNET]: 'katana',
   [ChainId.APECHAIN_MAINNET]: 'apechain',
-  [ChainId.PLASMA_MAINNET]: 'plasma'
+  [ChainId.PLASMA_MAINNET]: 'plasma',
 };
 
 const INTERVAL_DAYS = 7;
 
-const queryItems = symbiosis.config.chains.map(({ id, metaRouter }) => {
-  if (isBtcChainId(id) || isSolanaChainId(id) || isTonChainId(id)) {
-    return;
-  }
+const queryItems = symbiosis.config.chains
+  .map(({ id, metaRouter }) => {
+    if (isBtcChainId(id) || isSolanaChainId(id) || isTonChainId(id)) {
+      return;
+    }
 
-  const chainName = CHAINS_DUNE[id];
-  if (!chainName) {
-    const chain = getChainById(id);
-    console.log(`[ChainId] ${id}.${chain.name} not found`);
-    return;
-  }
+    const chainName = CHAINS_DUNE[id];
+    if (!chainName) {
+      const chain = getChainById(id);
+      console.log(`[ChainId] ${id}.${chain.name} not found`);
+      return;
+    }
 
-  return `select block_time, "to", success, hash, data, '${chainName}' as chain
+    return `select block_time, "to", success, hash, data, '${chainName}' as chain
           from ${chainName}.transactions
           where block_date >= current_date - interval '${INTERVAL_DAYS}' day
             AND "to" = ${metaRouter}`;
-}).filter(Boolean);
+  })
+  .filter(Boolean);
 
 const partners = [
   'symbiosis-app',
@@ -67,13 +76,15 @@ const partners = [
   'rubic',
   'rango',
   'chainspot.router',
-  'swing-api'
+  'swing-api',
 ];
 
-const partnersSubquery = partners.map((partner) => {
-  const hex = utils.formatBytes32String(partner).slice(2);
-  return `WHEN strpos(cast(data as varchar), '${hex}') > 0 THEN '${partner}'`;
-}).join(' ');
+const partnersSubquery = partners
+  .map((partner) => {
+    const hex = utils.formatBytes32String(partner).slice(2);
+    return `WHEN strpos(cast(data as varchar), '${hex}') > 0 THEN '${partner}'`;
+  })
+  .join(' ');
 
 const query = `
     WITH symbiosis AS (SELECT block_time,
@@ -92,9 +103,4 @@ const query = `
     WHERE success != true
     ORDER BY block_time desc`;
 
-fs.writeFileSync(
-  'data/dune.sql',
-  query,
-  'utf8'
-);
-
+fs.writeFileSync('data/dune.sql', query, 'utf8');

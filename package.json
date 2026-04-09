@@ -7,16 +7,19 @@
     "dune": "bun run src/dune.js",
     "fees": "bun run src/fees.ts",
     "fees-check": "bun run src/fees-check.ts",
-    "postinstall": "typechain --target ethers-v5 './abi/*.json'"
+    "postinstall": "typechain --target ethers-v5 './abi/*.json'",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@typechain/ethers-v5": "^11.1.2",
     "ethers": "^5.7.2",
-    "symbiosis-js-sdk": "3.8.2",
+    "symbiosis-js-sdk": "3.11.14",
     "tronweb": "^5.3.0"
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "prettier": "^3.8.1",
     "typechain": "^8.3.2"
   }
 }

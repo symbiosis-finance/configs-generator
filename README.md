@@ -9,6 +9,7 @@ bun install
 ### Run a script
 
 For example
+
 ```
 bun defillama-tvl
 ```

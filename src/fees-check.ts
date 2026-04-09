@@ -7,11 +7,18 @@ const symbiosis = new Symbiosis('mainnet', 'fees');
 const chainId = ChainId.SYMBIOSIS_MAINNET;
 const provider = symbiosis.getProvider(chainId);
 
-type TokenBalance = { multisigAddress: string, tokenAddress: string; balance: BigNumber };
+type TokenBalance = {
+  multisigAddress: string;
+  tokenAddress: string;
+  balance: BigNumber;
+};
 
 async function readNonZeroBalancesFromFile(): Promise<TokenBalance[]> {
   const file = fs.readFileSync('data/fees.txt', 'utf8');
-  const lines = file.split('\n').map((l) => l.trim()).filter(Boolean);
+  const lines = file
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean);
 
   if (lines.length === 0) {
     throw new Error('data/fees.txt is empty');
@@ -20,7 +27,8 @@ async function readNonZeroBalancesFromFile(): Promise<TokenBalance[]> {
   const items: TokenBalance[] = [];
 
   for (const line of lines) {
-    const [_network, multisigAddress, tokenAddress, _to, balanceStr] = line.split(',');
+    const [_network, multisigAddress, tokenAddress, _to, balanceStr] =
+      line.split(',');
     if (!multisigAddress || !tokenAddress || !balanceStr) {
       throw new Error(`Invalid line in data/fees.txt: ${line}`);
     }
@@ -42,13 +50,14 @@ async function main() {
       throw new Error(`Balance of ${tokenAddress} is less than expected`);
     } else if (newBalance.gt(balance)) {
       console.log(`${tokenAddress} balance become greater`);
-    }
-    else {
+    } else {
       console.log(`${tokenAddress} balance is eq`);
     }
   }
 }
 
-main().then(() => {
-  console.log('ok');
-}).catch(console.error);
+main()
+  .then(() => {
+    console.log('ok');
+  })
+  .catch(console.error);
