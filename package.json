@@ -21,5 +21,12 @@
     "@types/bun": "latest",
     "prettier": "^3.8.1",
     "typechain": "^8.3.2"
+  },
+  "overrides": {
+    "axios": "1.16.0",
+    "lodash": "4.18.0",
+    "ws": "8.21.0",
+    "uuid": "11.1.1",
+    "@openzeppelin/contracts": "4.9.6"
   }
 }
