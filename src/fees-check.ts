@@ -1,11 +1,13 @@
-import { ChainId, Symbiosis } from 'symbiosis-js-sdk';
+import { ChainId, Symbiosis } from '@symbiosis-finance/sdk-types';
 import fs from 'fs';
 import { Erc20__factory } from '../types/ethers-contracts';
-import { BigNumber } from 'ethers';
+import { BigNumber, providers } from 'ethers';
 
 const symbiosis = new Symbiosis('mainnet', 'fees');
 const chainId = ChainId.SYMBIOSIS_MAINNET;
-const provider = symbiosis.getProvider(chainId);
+const provider = new providers.JsonRpcProvider(
+  symbiosis.chainConfig(chainId).rpc,
+);
 
 type TokenBalance = {
   multisigAddress: string;

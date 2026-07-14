@@ -5,13 +5,13 @@ import {
   isSolanaChainId,
   isTonChainId,
   Symbiosis,
-} from 'symbiosis-js-sdk';
+} from '@symbiosis-finance/sdk-types';
 import fs from 'fs';
 import { utils } from 'ethers';
 
 const symbiosis = new Symbiosis('mainnet', 'dune');
 
-export const CHAINS_DUNE = {
+export const CHAINS_DUNE: Partial<Record<ChainId, string>> = {
   [ChainId.ETH_MAINNET]: 'ethereum',
   [ChainId.BSC_MAINNET]: 'bnb',
   [ChainId.AVAX_MAINNET]: 'avalanche_c',
@@ -35,7 +35,7 @@ export const CHAINS_DUNE = {
   [ChainId.BERACHAIN_MAINNET]: 'berachain',
   [ChainId.UNICHAIN_MAINNET]: 'unichain',
   [ChainId.OPBNB_MAINNET]: 'opbnb',
-  [ChainId.HYPERLIQUID_MAINNET]: 'hyperevm',
+  [ChainId.HYPEREVM_MAINNET]: 'hyperevm',
   [ChainId.KATANA_MAINNET]: 'katana',
   [ChainId.APECHAIN_MAINNET]: 'apechain',
   [ChainId.PLASMA_MAINNET]: 'plasma',
@@ -52,7 +52,7 @@ const queryItems = symbiosis.config.chains
     const chainName = CHAINS_DUNE[id];
     if (!chainName) {
       const chain = getChainById(id);
-      console.log(`[ChainId] ${id}.${chain.name} not found`);
+      console.log(`[ChainId] ${id}.${chain?.name ?? 'unknown'} not found`);
       return;
     }
 

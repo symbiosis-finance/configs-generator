@@ -22,5 +22,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
-  }
+  },
+  // `data` holds generated output artifacts consumed by other repos, not source.
+  "exclude": ["node_modules", "data"]
 }

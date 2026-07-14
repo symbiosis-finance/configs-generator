@@ -5,7 +5,7 @@ import {
   isTonChainId,
   isTronChainId,
   Symbiosis,
-} from 'symbiosis-js-sdk';
+} from '@symbiosis-finance/sdk-types';
 import fs from 'fs';
 import TronWeb from 'tronweb';
 

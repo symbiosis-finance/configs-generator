@@ -1,7 +1,12 @@
-import { ChainId, getMulticall, Symbiosis, Token } from 'symbiosis-js-sdk';
+import {
+  ChainId,
+  MULTICALL_ADDRESSES,
+  Symbiosis,
+  Token,
+} from '@symbiosis-finance/sdk-types';
 import fs from 'fs';
-import { Erc20__factory } from '../types/ethers-contracts';
-import { BigNumber } from 'ethers';
+import { Erc20__factory, Multicall__factory } from '../types/ethers-contracts';
+import { BigNumber, providers } from 'ethers';
 
 const symbiosis = new Symbiosis('mainnet', 'fees');
 
@@ -35,13 +40,23 @@ async function main() {
     };
   });
 
-  const provider = symbiosis.getProvider(chainId);
-  const multicall = await getMulticall(provider);
+  const provider = new providers.JsonRpcProvider(
+    symbiosis.chainConfig(chainId).rpc,
+  );
+  const multicallAddress = MULTICALL_ADDRESSES[chainId];
+  if (!multicallAddress) {
+    throw new Error(`No multicall address for chainId ${chainId}`);
+  }
+  const multicall = Multicall__factory.connect(multicallAddress, provider);
   const results = await multicall.callStatic.tryAggregate(true, calls);
 
   const nonZeroBalances: TokenBalance[] = tokens
     .map((token, index) => {
-      const [success, data] = results[index];
+      const result = results[index];
+      if (!result) {
+        return;
+      }
+      const [success, data] = result;
       if (!success) {
         return;
       }

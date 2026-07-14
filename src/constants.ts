@@ -1,4 +1,4 @@
-import { ChainId } from 'symbiosis-js-sdk';
+import { ChainId } from '@symbiosis-finance/sdk-types';
 
 export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
@@ -50,7 +50,7 @@ export const CHAINS_DEFILLAMA: Partial<Record<ChainId, string>> = {
   [ChainId.UNICHAIN_MAINNET]: 'unichain',
   [ChainId.SONEIUM_MAINNET]: 'soneium',
   [ChainId.OPBNB_MAINNET]: 'op_bnb',
-  [ChainId.HYPERLIQUID_MAINNET]: 'hyperliquid',
+  [ChainId.HYPEREVM_MAINNET]: 'hyperliquid',
   [ChainId.KATANA_MAINNET]: 'katana',
   [ChainId.APECHAIN_MAINNET]: 'apechain',
   [ChainId.PLASMA_MAINNET]: 'plasma',
@@ -58,4 +58,5 @@ export const CHAINS_DEFILLAMA: Partial<Record<ChainId, string>> = {
   [ChainId.CITREA_MAINNET]: 'citrea',
   [ChainId.QUAI_MAINNET]: 'quai',
   [ChainId.TEMPO_MAINNET]: 'tempo',
+  [ChainId.ROBINHOOD_MAINNET]: 'robinhood',
 };

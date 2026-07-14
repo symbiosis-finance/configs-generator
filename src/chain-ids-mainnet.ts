@@ -3,7 +3,7 @@ import {
   isEvmChainId,
   isTronChainId,
   Symbiosis,
-} from 'symbiosis-js-sdk';
+} from '@symbiosis-finance/sdk-types';
 import fs from 'fs';
 
 const symbiosis = new Symbiosis('mainnet', '');

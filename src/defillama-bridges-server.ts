@@ -1,24 +1,31 @@
-import { isEvmChainId, isTronChainId, Symbiosis } from 'symbiosis-js-sdk';
+import {
+  isEvmChainId, isQuaiChainId,
+  isTronChainId,
+  Symbiosis,
+} from '@symbiosis-finance/sdk-types';
 import fs from 'fs';
 
 const symbiosis = new Symbiosis('mainnet', 'defillama');
 
-const config = symbiosis.config.chains
-  .map((chainConfig) => {
-    const { synthesis, portal, id } = chainConfig;
-    if (!isEvmChainId(id) || !isTronChainId(id)) {
-      return;
-    }
-    return {
-      chainId: chainConfig.id,
-      portal,
-      synthesis,
-    };
-  })
-  .filter(Boolean);
+const contracts = symbiosis.config.chains
+  .filter(({ id }) => isEvmChainId(id) || isTronChainId(id) || isQuaiChainId(id))
+  .map(({ id, portal, synthesis }) => ({ chainId: id, portal, synthesis }));
 
-fs.writeFileSync(
-  'data/defillama-bridges-server.json',
-  JSON.stringify(config),
-  'utf8',
-);
+const entries = contracts
+  .map(
+    ({ chainId, portal, synthesis }) =>
+      `  {\n` +
+      `    chainId: ${chainId},\n` +
+      `    portal: "${portal}",\n` +
+      `    synthesis: "${synthesis}",\n` +
+      `  },`,
+  )
+  .join('\n');
+
+const output =
+  `import { ChainId } from "./constants";\n\n` +
+  `export const contracts: { chainId: ChainId; portal: string; synthesis: string }[] = [\n` +
+  `${entries}\n` +
+  `] as const;\n`;
+
+fs.writeFileSync('data/defillama-bridges-server.ts', output, 'utf8');
