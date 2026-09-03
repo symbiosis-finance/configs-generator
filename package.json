@@ -7,6 +7,7 @@
     "dune": "bun run src/dune.js",
     "fees": "bun run src/fees.ts",
     "fees-check": "bun run src/fees-check.ts",
+    "sybtc-fees": "bun run src/sybtc-fees.ts",
     "postinstall": "typechain --target ethers-v5 './abi/*.json'",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
