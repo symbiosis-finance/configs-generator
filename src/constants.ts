@@ -59,4 +59,5 @@ export const CHAINS_DEFILLAMA: Partial<Record<ChainId, string>> = {
   [ChainId.QUAI_MAINNET]: 'quai',
   [ChainId.TEMPO_MAINNET]: 'tempo',
   [ChainId.ROBINHOOD_MAINNET]: 'robinhood',
+  [ChainId.STABLE_MAINNET]: 'stable',
 };
