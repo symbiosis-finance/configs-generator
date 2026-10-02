@@ -9,12 +9,13 @@
     "fees-check": "bun run src/fees-check.ts",
     "sybtc-fees": "bun run src/sybtc-fees.ts",
     "limits": "bun run src/limits.ts",
+    "onchain-fees": "bun run src/onchain-fees.ts",
     "postinstall": "typechain --target ethers-v5 './abi/*.json'",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@symbiosis-finance/sdk-types": "0.0.41",
+    "@symbiosis-finance/sdk-types": "0.0.48",
     "@typechain/ethers-v5": "^11.1.2",
     "ethers": "^5.7.2",
     "tronweb": "^5.3.0"

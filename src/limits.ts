@@ -17,8 +17,8 @@ const symbiosis = new Symbiosis('mainnet', 'limits');
 
 // pool assets: 200% of the pool liquidity (asset liability)
 const LIQUIDITY_MULTIPLIER = 2;
-// 100% of the sum of totalSupply of all synths of the token
-const SUPPLY_MULTIPLIER = 1;
+// 200% of the sum of totalSupply of all synths of the token
+const SUPPLY_MULTIPLIER = 2;
 // round the limit down keeping this many significant digits
 // e.g. 7,037,034 USDC -> 7,030,000; 543.21 ETH -> 543
 const SIGNIFICANT_DIGITS = 3;
